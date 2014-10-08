@@ -30,7 +30,7 @@
                                 {{ item.type }}
                             </span>
                         </div>
-                    </div>                
+                    </div>
                 </td>
                 <td data-title="{{ 'User'|t }}">
                     <a href="{{ url('users/' ~ item.user.id) }}">{{ item.user.username }}</a>
@@ -59,8 +59,8 @@
         {% for attribute in item.diff %}
             <tr>
                 <th>{{ attribute.label }}</th>
-                <td>{{ attribute.before is not iterable ? attribute.before }}</td>
-                <td{% if attribute.changed %} style="color: #ffffff; background-color: #009900;"{% endif %}>{{ attribute.after is not iterable ? attribute.after }}</td>
+                <td>{{ attribute.before is not iterable ? attribute.before|raw }}</td>
+                <td{% if attribute.changed %} style="color: #ffffff; background-color: #009900;"{% endif %}>{{ attribute.after is not iterable ? attribute.after|raw }}</td>
             </tr>
         {% endfor %}
         </tbody>
